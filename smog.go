@@ -11,26 +11,31 @@ type Object struct {
 	Primitive interface{}
 }
 
+func (u *Universe) NewObject(clazzname string) *Object {
+	o := new(Object)
+	cls := u.GetGlobal(clazzname)
+	o.Clazz = cls
+	o.Hash = 0
+	o.Fields = make([]*Object, 0)
+	o.Primitive = nil
+	return o
+}
+
 //
 // VM Runtime Structs
 //
 
-// Heap is the one place where all objects are stored.
-type HeapStruct struct {
-	Objects []*Object
-	Index   map[string]int // map of object names to heap indexes
-}
-
-// not sure I need this.
-
 type Frame struct {
-	Stack  Stack[*Object]
-	Locals []*Object
-	Args   []*Object
+	Stack         Stack[*Object]
+	Locals        []*Object
+	Args          []*Object
+	MethodContext *Object // method
+	Receiver      *Object
+	Return        *Object
 }
 
 type Universe struct {
-	Globals map[string]*Object
+	Globals        map[string]*Object
 	CallStack      Stack[*Frame]
 	ExecutionStack Stack[*Object]
 	// and the system class singletons
@@ -49,16 +54,6 @@ type Universe struct {
 	True  *Object
 	False *Object
 	Nil   *Object
-}
-
-func (u *Universe) NewObject(clazzname string) *Object {
-	o := new(Object)
-	cls := u.GetGlobal(clazzname)
-	o.Clazz = cls
-	o.Hash = 0
-	o.Fields = make([]*Object, 0)
-	o.Primitive = nil
-	return o
 }
 
 func NewUniverse() *Universe {
@@ -146,12 +141,39 @@ func (o *Object) GetField(name string) *Object {
 	return nil
 }
 
+func (u *Universe) NewString(s string) *Object {
+	o := u.NewObject("String")
+	o.Primitive = s
+	return o
+}
+func (u *Universe) NewSymbol(s string) *Object {
+	o := u.NewObject("Symbol")
+	o.Primitive = s
+	return o
+}
+
 func (o *Object) String() string {
-	if o.Clazz.Name == "String" {
+	if o.Clazz.Name == "String" || o.Clazz.Name == "Symbol" {
 		return o.Primitive.(string)
 	}
 	return o.Clazz.Name
 }
+func (u *Universe) NewInteger(i int) *Object {
+	o := u.NewObject("Integer")
+	o.Primitive = i
+	return o
+}
+func (u *Universe) NewDouble(d float64) *Object {
+	o := u.NewObject("Double")
+	o.Primitive = d
+	return o
+}
+func (u *Universe) NewBlock(b *Object) *Object {
+	o := u.NewObject("Block")
+	o.Primitive = b
+	return o
+}
+
 func (o *Object) Integer() int {
 	if o.Clazz.Name == "Integer" {
 		return o.Primitive.(int)
@@ -163,6 +185,12 @@ func (o *Object) Double() float64 {
 		return o.Primitive.(float64)
 	}
 	return 0.0
+}
+func (o *Object) Block() *Object {
+	if o.Clazz.Name == "Block" {
+		return o.Primitive.(*Object)
+	}
+	return nil
 }
 
 func (o *Object) IsNil() bool {
@@ -176,4 +204,16 @@ func (o *Object) IsFalse() bool {
 }
 func (o *Object) IsInteger() bool {
 	return o.Clazz.Name == "Integer"
+}
+func (o *Object) IsDouble() bool {
+	return o.Clazz.Name == "Double"
+}
+func (o *Object) IsString() bool {
+	return o.Clazz.Name == "String"
+}
+func (o *Object) IsSymbol() bool {
+	return o.Clazz.Name == "Symbol"
+}
+func (o *Object) IsBlock() bool {
+	return o.Clazz.Name == "Block"
 }
