@@ -36,7 +36,7 @@ func TestUniverseNewObject(t *testing.T) {
 		t.Error("NewClass() returned nil")
 	}
 	if c.Name != "Foo" {
-		t.Error("NewObject() returned object with wrong class")
+		t.Error("NewClass() returned object with wrong class")
 	}
 	o := u.NewObject("Foo")
 	if o == nil {

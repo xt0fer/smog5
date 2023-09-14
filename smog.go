@@ -20,6 +20,7 @@ type HeapStruct struct {
 	Objects []*Object
 	Index   map[string]int // map of object names to heap indexes
 }
+
 // not sure I need this.
 
 // Stack is used for FIFO in the VM.
@@ -30,7 +31,6 @@ type StackStruct struct {
 
 type Frame struct {
 	StackStruct
-	HeapStruct
 	Locals []*Object
 	Args   []*Object
 }
@@ -47,6 +47,11 @@ type Universe struct {
 	NilClass    *Object
 	TrueClass   *Object
 	FalseClass  *Object
+	//
+	IntegerClass *Object
+	DoubleClass  *Object
+	StringClass  *Object
+	//
 
 	// system object singletons
 	True  *Object
@@ -77,6 +82,9 @@ func (u *Universe) Initialize() *Universe {
 	u.NilClass = u.NewClass("Nil")
 	u.TrueClass = u.NewClass("True")
 	u.FalseClass = u.NewClass("False")
+	u.IntegerClass = u.NewClass("Integer")
+	u.DoubleClass = u.NewClass("Double")
+	u.StringClass = u.NewClass("String")
 	u.True = u.NewObject("True")
 	u.False = u.NewObject("False")
 	u.Nil = u.NewObject("Nil")
@@ -114,9 +122,13 @@ func (u *Universe) SetGlobal(name string, value *Object) {
 	u.Globals[name] = value
 }
 
-//
 // OBJECT routines
-//
+func (o *Object) GetFieldAt(i int) *Object {
+	return o.Fields[i]
+}
+func (o *Object) SetFieldAt(i int, value *Object) {
+	o.Fields[i] = value
+}
 
 func (o *Object) SetField(name string, value *Object) {
 	for i, f := range o.Fields {
@@ -135,4 +147,23 @@ func (o *Object) GetField(name string) *Object {
 		}
 	}
 	return nil
+}
+
+func (o *Object) String() string {
+	if o.Clazz.Name == "String" {
+		return o.Primitive.(string)
+	}
+	return o.Clazz.Name
+}
+func (o *Object) Integer() int {
+	if o.Clazz.Name == "Integer" {
+		return o.Primitive.(int)
+	}
+	return 0
+}
+func (o *Object) Double() float64 {
+	if o.Clazz.Name == "Double" {
+		return o.Primitive.(float64)
+	}
+	return 0.0
 }
