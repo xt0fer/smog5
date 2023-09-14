@@ -23,24 +23,16 @@ type HeapStruct struct {
 
 // not sure I need this.
 
-// Stack is used for FIFO in the VM.
-type StackStruct struct {
-	Stack []*Object
-	PC    int
-}
-
 type Frame struct {
-	StackStruct
+	Stack  Stack[*Object]
 	Locals []*Object
 	Args   []*Object
 }
 
-type CallStack []*Frame
-type Globals map[string]*Object
-
 type Universe struct {
-	Globals
-	CallStack
+	Globals map[string]*Object
+	CallStack      Stack[*Frame]
+	ExecutionStack Stack[*Object]
 	// and the system class singletons
 	ObjectClass *Object
 	ClassClass  *Object
@@ -72,7 +64,8 @@ func (u *Universe) NewObject(clazzname string) *Object {
 func NewUniverse() *Universe {
 	u := new(Universe)
 	u.Globals = make(map[string]*Object)
-	u.CallStack = make([]*Frame, 0)
+	u.CallStack = *NewStack[*Frame]()
+	u.ExecutionStack = *NewStack[*Object]()
 	return u
 }
 
@@ -99,6 +92,10 @@ func (u *Universe) NewClass(name string) *Object {
 	c.Primitive = nil
 	u.Globals[name] = c
 	return c
+}
+
+func (u *Universe) ClassFor(name string) *Object {
+	return u.GetGlobal(name)
 }
 
 func hash(s string) uint64 {
@@ -166,4 +163,17 @@ func (o *Object) Double() float64 {
 		return o.Primitive.(float64)
 	}
 	return 0.0
+}
+
+func (o *Object) IsNil() bool {
+	return o.Clazz.Name == "Nil"
+}
+func (o *Object) IsTrue() bool {
+	return o.Clazz.Name == "True"
+}
+func (o *Object) IsFalse() bool {
+	return o.Clazz.Name == "False"
+}
+func (o *Object) IsInteger() bool {
+	return o.Clazz.Name == "Integer"
 }
