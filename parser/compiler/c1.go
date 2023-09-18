@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 
 	"github.com/antlr4-go/antlr/v4"
@@ -11,10 +10,6 @@ import (
 
 type somListener struct {
 	*parser.BaseSOMListener
-}
-
-func (s *somListener) VisitTerminal(node antlr.TerminalNode) {
-	fmt.Printf("%v\n", node.GetText())
 }
 
 func main() {

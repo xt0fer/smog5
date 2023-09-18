@@ -1,4 +1,5 @@
 # smog5
+
 SOM implementation in golang
 
 This is the 5th attempt at a SOM implmentation.
