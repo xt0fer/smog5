@@ -1,4 +1,4 @@
-// Code generated from SOM.g4 by ANTLR 4.13.1. DO NOT EDIT.
+// Code generated from ./SOM.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // SOM
 
@@ -517,6 +517,16 @@ func (s *ClassdefContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *ClassdefContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitClassdef(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) Classdef() (localctx IClassdefContext) {
 	localctx = NewClassdefContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 0, SOMParserRULE_classdef)
@@ -706,6 +716,16 @@ func (s *SuperclassContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *SuperclassContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitSuperclass(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) Superclass() (localctx ISuperclassContext) {
 	localctx = NewSuperclassContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 2, SOMParserRULE_superclass)
@@ -867,6 +887,16 @@ func (s *InstanceFieldsContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *InstanceFieldsContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitInstanceFields(s)
+	}
+}
+
+func (s *InstanceFieldsContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitInstanceFields(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1052,6 +1082,16 @@ func (s *ClassFieldsContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *ClassFieldsContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitClassFields(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) ClassFields() (localctx IClassFieldsContext) {
 	localctx = NewClassFieldsContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 6, SOMParserRULE_classFields)
@@ -1222,6 +1262,16 @@ func (s *MethodContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *MethodContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitMethod(s)
+	}
+}
+
+func (s *MethodContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitMethod(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1398,6 +1448,16 @@ func (s *PatternContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *PatternContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitPattern(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) Pattern() (localctx IPatternContext) {
 	localctx = NewPatternContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 10, SOMParserRULE_pattern)
@@ -1529,6 +1589,16 @@ func (s *UnaryPatternContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *UnaryPatternContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitUnaryPattern(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) UnaryPattern() (localctx IUnaryPatternContext) {
 	localctx = NewUnaryPatternContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 12, SOMParserRULE_unaryPattern)
@@ -1647,6 +1717,16 @@ func (s *BinaryPatternContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *BinaryPatternContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitBinaryPattern(s)
+	}
+}
+
+func (s *BinaryPatternContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitBinaryPattern(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1827,6 +1907,16 @@ func (s *KeywordPatternContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *KeywordPatternContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitKeywordPattern(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) KeywordPattern() (localctx IKeywordPatternContext) {
 	localctx = NewKeywordPatternContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 16, SOMParserRULE_keywordPattern)
@@ -1963,6 +2053,16 @@ func (s *MethodBlockContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *MethodBlockContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitMethodBlock(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) MethodBlock() (localctx IMethodBlockContext) {
 	localctx = NewMethodBlockContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 18, SOMParserRULE_methodBlock)
@@ -2092,6 +2192,16 @@ func (s *UnarySelectorContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *UnarySelectorContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitUnarySelector(s)
+	}
+}
+
+func (s *UnarySelectorContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitUnarySelector(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -2257,6 +2367,16 @@ func (s *BinarySelectorContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *BinarySelectorContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitBinarySelector(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) BinarySelector() (localctx IBinarySelectorContext) {
 	localctx = NewBinarySelectorContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 22, SOMParserRULE_binarySelector)
@@ -2363,6 +2483,16 @@ func (s *IdentifierContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *IdentifierContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitIdentifier(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) Identifier() (localctx IIdentifierContext) {
 	localctx = NewIdentifierContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 24, SOMParserRULE_identifier)
@@ -2461,6 +2591,16 @@ func (s *KeywordContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *KeywordContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitKeyword(s)
+	}
+}
+
+func (s *KeywordContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitKeyword(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -2569,6 +2709,16 @@ func (s *ArgumentContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *ArgumentContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitArgument(s)
+	}
+}
+
+func (s *ArgumentContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitArgument(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -2700,6 +2850,16 @@ func (s *BlockContentsContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *BlockContentsContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitBlockContents(s)
+	}
+}
+
+func (s *BlockContentsContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitBlockContents(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -2862,6 +3022,16 @@ func (s *LocalDefsContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *LocalDefsContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitLocalDefs(s)
+	}
+}
+
+func (s *LocalDefsContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitLocalDefs(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -3028,6 +3198,16 @@ func (s *BlockBodyContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *BlockBodyContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitBlockBody(s)
+	}
+}
+
+func (s *BlockBodyContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitBlockBody(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -3202,6 +3382,16 @@ func (s *ResultContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *ResultContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitResult(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) Result() (localctx IResultContext) {
 	localctx = NewResultContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 36, SOMParserRULE_result)
@@ -3340,6 +3530,16 @@ func (s *ExpressionContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *ExpressionContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitExpression(s)
+	}
+}
+
+func (s *ExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitExpression(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -3483,6 +3683,16 @@ func (s *AssignationContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *AssignationContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitAssignation(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) Assignation() (localctx IAssignationContext) {
 	localctx = NewAssignationContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 40, SOMParserRULE_assignation)
@@ -3614,6 +3824,16 @@ func (s *AssignmentsContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *AssignmentsContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitAssignments(s)
+	}
+}
+
+func (s *AssignmentsContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitAssignments(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -3750,6 +3970,16 @@ func (s *AssignmentContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *AssignmentContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitAssignment(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) Assignment() (localctx IAssignmentContext) {
 	localctx = NewAssignmentContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 44, SOMParserRULE_assignment)
@@ -3876,6 +4106,16 @@ func (s *EvaluationContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *EvaluationContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitEvaluation(s)
+	}
+}
+
+func (s *EvaluationContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitEvaluation(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -4050,6 +4290,16 @@ func (s *PrimaryContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *PrimaryContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitPrimary(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) Primary() (localctx IPrimaryContext) {
 	localctx = NewPrimaryContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 48, SOMParserRULE_primary)
@@ -4185,6 +4435,16 @@ func (s *VariableContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *VariableContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitVariable(s)
+	}
+}
+
+func (s *VariableContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitVariable(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -4375,6 +4635,16 @@ func (s *MessagesContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *MessagesContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitMessages(s)
+	}
+}
+
+func (s *MessagesContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitMessages(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -4591,6 +4861,16 @@ func (s *UnaryMessageContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *UnaryMessageContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitUnaryMessage(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) UnaryMessage() (localctx IUnaryMessageContext) {
 	localctx = NewUnaryMessageContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 54, SOMParserRULE_unaryMessage)
@@ -4709,6 +4989,16 @@ func (s *BinaryMessageContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *BinaryMessageContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitBinaryMessage(s)
+	}
+}
+
+func (s *BinaryMessageContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitBinaryMessage(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -4860,6 +5150,16 @@ func (s *BinaryOperandContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *BinaryOperandContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitBinaryOperand(s)
+	}
+}
+
+func (s *BinaryOperandContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitBinaryOperand(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -5058,6 +5358,16 @@ func (s *KeywordMessageContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *KeywordMessageContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitKeywordMessage(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) KeywordMessage() (localctx IKeywordMessageContext) {
 	localctx = NewKeywordMessageContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 60, SOMParserRULE_keywordMessage)
@@ -5227,6 +5537,16 @@ func (s *FormulaContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *FormulaContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitFormula(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) Formula() (localctx IFormulaContext) {
 	localctx = NewFormulaContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 62, SOMParserRULE_formula)
@@ -5360,6 +5680,16 @@ func (s *NestedTermContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *NestedTermContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitNestedTerm(s)
+	}
+}
+
+func (s *NestedTermContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitNestedTerm(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -5531,6 +5861,16 @@ func (s *LiteralContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *LiteralContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitLiteral(s)
+	}
+}
+
+func (s *LiteralContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitLiteral(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -5712,6 +6052,16 @@ func (s *LiteralArrayContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *LiteralArrayContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitLiteralArray(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) LiteralArray() (localctx ILiteralArrayContext) {
 	localctx = NewLiteralArrayContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 68, SOMParserRULE_literalArray)
@@ -5875,6 +6225,16 @@ func (s *LiteralNumberContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *LiteralNumberContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitLiteralNumber(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) LiteralNumber() (localctx ILiteralNumberContext) {
 	localctx = NewLiteralNumberContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 70, SOMParserRULE_literalNumber)
@@ -6016,6 +6376,16 @@ func (s *LiteralDecimalContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *LiteralDecimalContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitLiteralDecimal(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) LiteralDecimal() (localctx ILiteralDecimalContext) {
 	localctx = NewLiteralDecimalContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 72, SOMParserRULE_literalDecimal)
@@ -6145,6 +6515,16 @@ func (s *NegativeDecimalContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *NegativeDecimalContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitNegativeDecimal(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) NegativeDecimal() (localctx INegativeDecimalContext) {
 	localctx = NewNegativeDecimalContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 74, SOMParserRULE_negativeDecimal)
@@ -6245,6 +6625,16 @@ func (s *LiteralIntegerContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *LiteralIntegerContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitLiteralInteger(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) LiteralInteger() (localctx ILiteralIntegerContext) {
 	localctx = NewLiteralIntegerContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 76, SOMParserRULE_literalInteger)
@@ -6338,6 +6728,16 @@ func (s *LiteralDoubleContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *LiteralDoubleContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitLiteralDouble(s)
+	}
+}
+
+func (s *LiteralDoubleContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitLiteralDouble(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -6471,6 +6871,16 @@ func (s *LiteralSymbolContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *LiteralSymbolContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitLiteralSymbol(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) LiteralSymbol() (localctx ILiteralSymbolContext) {
 	localctx = NewLiteralSymbolContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 80, SOMParserRULE_literalSymbol)
@@ -6599,6 +7009,16 @@ func (s *LiteralStringContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *LiteralStringContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitLiteralString(s)
+	}
+}
+
+func (s *LiteralStringContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitLiteralString(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -6740,6 +7160,16 @@ func (s *SelectorContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *SelectorContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitSelector(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) Selector() (localctx ISelectorContext) {
 	localctx = NewSelectorContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 84, SOMParserRULE_selector)
@@ -6864,6 +7294,16 @@ func (s *KeywordSelectorContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *KeywordSelectorContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitKeywordSelector(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) KeywordSelector() (localctx IKeywordSelectorContext) {
 	localctx = NewKeywordSelectorContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 86, SOMParserRULE_keywordSelector)
@@ -6962,6 +7402,16 @@ func (s *SomstringContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *SomstringContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitSomstring(s)
+	}
+}
+
+func (s *SomstringContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitSomstring(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -7097,6 +7547,16 @@ func (s *NestedBlockContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *NestedBlockContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitNestedBlock(s)
+	}
+}
+
+func (s *NestedBlockContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitNestedBlock(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -7251,6 +7711,16 @@ func (s *BlockPatternContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *BlockPatternContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitBlockPattern(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *SOMParser) BlockPattern() (localctx IBlockPatternContext) {
 	localctx = NewBlockPatternContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 92, SOMParserRULE_blockPattern)
@@ -7396,6 +7866,16 @@ func (s *BlockArgumentsContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *BlockArgumentsContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(SOMListener); ok {
 		listenerT.ExitBlockArguments(s)
+	}
+}
+
+func (s *BlockArgumentsContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case SOMVisitor:
+		return t.VisitBlockArguments(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 

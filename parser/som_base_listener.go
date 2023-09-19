@@ -1,10 +1,8 @@
-// Code generated from SOM.g4 by ANTLR 4.13.1. DO NOT EDIT.
+// Code generated from ./SOM.g4 by ANTLR 4.13.1. DO NOT EDIT.
 
 package parser // SOM
 
-import (
-	"github.com/antlr4-go/antlr/v4"
-)
+import "github.com/antlr4-go/antlr/v4"
 
 // BaseSOMListener is a complete listener for a parse tree produced by SOMParser.
 type BaseSOMListener struct{}

@@ -7,6 +7,6 @@ import (
 )
 
 func (s *somListener) VisitTerminal(node antlr.TerminalNode) {
-	fmt.Printf("%v\n", node.GetText())
+	fmt.Printf("%v\n", node.GetText(), node.GetParent())
 }
 
