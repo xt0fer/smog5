@@ -2,7 +2,7 @@
 
 $Id: Permute.som 31 2009-07-31 12:25:18Z michael.haupt $
 
-Copyright (c) 2001-2007 see AUTHORS file
+Copyright (c) 2001-2013 see AUTHORS file
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the 'Software'), to deal
@@ -31,9 +31,11 @@ Permute = Benchmark (
         count := 0.
         v     := Array new: 7.
         self permute: 6.
-        (count = 8660)
-            ifFalse: [
-                self error: 'Wrong result: ' + count + ' should be: 8660' ]
+        ^ count
+    )
+    
+    verifyResult: result = (
+      ^ self assert: 8660 equals: result
     )
     
     permute: n = (

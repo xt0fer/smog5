@@ -2,7 +2,7 @@
 
 $Id: Bounce.som 31 2009-07-31 12:25:18Z michael.haupt $
 
-Copyright (c) 2001-2007 see AUTHORS file
+Copyright (c) 2001-2013 see AUTHORS file
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the 'Software'), to deal
@@ -37,10 +37,12 @@ Bounce = Benchmark (
         1 to: 50 do: [ :i |
             balls do: [ :ball |
                 (ball bounce) ifTrue: [ bounces := bounces + 1 ] ] ].
-        
-        (bounces = 1331)
-            ifFalse: [
-                self error: 'Wrong result: ' + bounces + ' should be: 1331' ]
+
+        ^ bounces
+    )
+    
+    verifyResult: result = (
+      ^ self assert: 1331 equals: result
     )
     
 )

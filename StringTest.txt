@@ -1,0 +1,1517 @@
+#Object>>#class = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_FIELD        (index: 0) field: class
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#Object>>#objectSize = <primitive>
+#Object>>#= = (
+	<0 locals, 2 stack, 14 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:SEND              (index: 0) signature: #==
+	   8:RETURN_LOCAL      
+	   9:POP               
+	  10:PUSH_ARGUMENT     argument: 0, context 0
+	  13:RETURN_LOCAL      
+	)
+#Object>>#<> = (
+	<0 locals, 2 stack, 16 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:SEND              (index: 0) signature: #=
+	   8:SEND              (index: 1) signature: #not
+	  10:RETURN_LOCAL      
+	  11:POP               
+	  12:PUSH_ARGUMENT     argument: 0, context 0
+	  15:RETURN_LOCAL      
+	)
+#Object>>#== = <primitive>
+#Object>>#isNil = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_GLOBAL       (index: 0) value: #false
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#Object>>#asString = (
+	<0 locals, 2 stack, 15 bc_count>
+	   0:PUSH_CONSTANT     (index: 0) value: (#String) "instance of "
+	   2:PUSH_ARGUMENT     argument: 0, context 0
+	   5:SEND              (index: 2) signature: #class
+	   7:SEND              (index: 1) signature: #+
+	   9:RETURN_LOCAL      
+	  10:POP               
+	  11:PUSH_ARGUMENT     argument: 0, context 0
+	  14:RETURN_LOCAL      
+	)
+#Object>>#, = (
+	<0 locals, 2 stack, 20 bc_count>
+	   0:PUSH_GLOBAL       (index: 0) value: #Vector
+	   2:SEND              (index: 1) signature: #new
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:SEND              (index: 2) signature: #append:
+	   9:PUSH_ARGUMENT     argument: 1, context 0
+	  12:SEND              (index: 2) signature: #append:
+	  14:RETURN_LOCAL      
+	  15:POP               
+	  16:PUSH_ARGUMENT     argument: 0, context 0
+	  19:RETURN_LOCAL      
+	)
+#Object>>#hashcode = <primitive>
+#Object>>#value = (
+	<0 locals, 1 stack, 9 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:RETURN_LOCAL      
+	   4:POP               
+	   5:PUSH_ARGUMENT     argument: 0, context 0
+	   8:RETURN_LOCAL      
+	)
+#Object>>#print = (
+	<0 locals, 1 stack, 12 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:SEND              (index: 0) signature: #asString
+	   5:SEND              (index: 1) signature: #print
+	   7:POP               
+	   8:PUSH_ARGUMENT     argument: 0, context 0
+	  11:RETURN_LOCAL      
+	)
+#Object>>#println = (
+	<0 locals, 1 stack, 15 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:SEND              (index: 0) signature: #print
+	   5:POP               
+	   6:PUSH_GLOBAL       (index: 1) value: #system
+	   8:SEND              (index: 2) signature: #printNewline
+	  10:POP               
+	  11:PUSH_ARGUMENT     argument: 0, context 0
+	  14:RETURN_LOCAL      
+	)
+#Object>>#error: = (
+	<0 locals, 2 stack, 24 bc_count>
+	   0:PUSH_CONSTANT     (index: 0) value: (#String) ""
+	   2:SEND              (index: 1) signature: #println
+	   4:POP               
+	   5:PUSH_CONSTANT     (index: 2) value: (#String) "ERROR: "
+	   7:PUSH_ARGUMENT     argument: 1, context 0
+	  10:SEND              (index: 3) signature: #+
+	  12:SEND              (index: 1) signature: #println
+	  14:POP               
+	  15:PUSH_GLOBAL       (index: 4) value: #system
+	  17:SEND              (index: 5) signature: #exit
+	  19:POP               
+	  20:PUSH_ARGUMENT     argument: 0, context 0
+	  23:RETURN_LOCAL      
+	)
+#Object>>#subclassResponsibility = (
+	<0 locals, 2 stack, 12 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_CONSTANT     (index: 0) value: (#String) "This method is abstract and should be overridden"
+	   5:SEND              (index: 1) signature: #error:
+	   7:POP               
+	   8:PUSH_ARGUMENT     argument: 0, context 0
+	  11:RETURN_LOCAL      
+	)
+#Object>>#doesNotUnderstand:arguments: = (
+	<0 locals, 3 stack, 27 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_CONSTANT     (index: 0) value: (#String) "Method "
+	   5:PUSH_ARGUMENT     argument: 1, context 0
+	   8:SEND              (index: 1) signature: #+
+	  10:PUSH_CONSTANT     (index: 2) value: (#String) " not found in class "
+	  12:SEND              (index: 1) signature: #+
+	  14:PUSH_FIELD        (index: 0) field: class
+	  16:SEND              (index: 4) signature: #name
+	  18:SEND              (index: 1) signature: #+
+	  20:SEND              (index: 5) signature: #error:
+	  22:POP               
+	  23:PUSH_ARGUMENT     argument: 0, context 0
+	  26:RETURN_LOCAL      
+	)
+#Object>>#escapedBlock: = (
+	<0 locals, 2 stack, 12 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_CONSTANT     (index: 0) value: (#String) "Block has escaped and cannot be executed"
+	   5:SEND              (index: 1) signature: #error:
+	   7:POP               
+	   8:PUSH_ARGUMENT     argument: 0, context 0
+	  11:RETURN_LOCAL      
+	)
+#Object>>#unknownGlobal: = (
+	<0 locals, 2 stack, 13 bc_count>
+	   0:PUSH_GLOBAL       (index: 0) value: #system
+	   2:PUSH_ARGUMENT     argument: 1, context 0
+	   5:SEND              (index: 1) signature: #resolve:
+	   7:RETURN_LOCAL      
+	   8:POP               
+	   9:PUSH_ARGUMENT     argument: 0, context 0
+	  12:RETURN_LOCAL      
+	)
+#Object>>#respondsTo: = (
+	<0 locals, 3 stack, 21 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:SEND              (index: 0) signature: #class
+	   5:PUSH_ARGUMENT     argument: 1, context 0
+	   8:SEND              (index: 1) signature: #hasMethod:
+	  10:PUSH_BLOCK        block: (index: 2) (
+		<0 locals, 1 stack, 4 bc_count>
+		   0:PUSH_GLOBAL       (index: 0) value: #true
+		   2:RETURN_NON_LOCAL  
+		   3:RETURN_LOCAL      
+		)
+	  12:PUSH_BLOCK        block: (index: 3) (
+		<1 locals, 2 stack, 23 bc_count>
+		   0:PUSH_ARGUMENT     argument: 0, context 1
+		   3:SEND              (index: 0) signature: #class
+		   5:SEND              (index: 1) signature: #superclass
+		   7:DUP               
+		   8:POP_LOCAL         local: 0, context: 0
+		  11:POP               
+		  12:PUSH_BLOCK        block: (index: 2) (
+			<0 locals, 1 stack, 6 bc_count>
+			   0:PUSH_LOCAL        local: 0, context: 1
+			   3:SEND              (index: 0) signature: #isNil
+			   5:RETURN_LOCAL      
+			)
+		  14:PUSH_BLOCK        block: (index: 3) (
+			<0 locals, 3 stack, 15 bc_count>
+			   0:PUSH_LOCAL        local: 0, context: 1
+			   3:PUSH_ARGUMENT     argument: 1, context 2
+			   6:SEND              (index: 0) signature: #hasMethod:
+			   8:PUSH_BLOCK        block: (index: 1) (
+				<0 locals, 1 stack, 4 bc_count>
+				   0:PUSH_GLOBAL       (index: 0) value: #true
+				   2:RETURN_NON_LOCAL  
+				   3:RETURN_LOCAL      
+				)
+			  10:PUSH_BLOCK        block: (index: 2) (
+				<0 locals, 2 stack, 10 bc_count>
+				   0:PUSH_LOCAL        local: 0, context: 2
+				   3:SEND              (index: 0) signature: #superclass
+				   5:DUP               
+				   6:POP_LOCAL         local: 0, context: 2
+				   9:RETURN_LOCAL      
+				)
+			  12:SEND              (index: 3) signature: #ifTrue:ifFalse:
+			  14:RETURN_LOCAL      
+			)
+		  16:SEND              (index: 4) signature: #whileFalse:
+		  18:POP               
+		  19:PUSH_GLOBAL       (index: 5) value: #false
+		  21:RETURN_NON_LOCAL  
+		  22:RETURN_LOCAL      
+		)
+	  14:SEND              (index: 4) signature: #ifTrue:ifFalse:
+	  16:POP               
+	  17:PUSH_ARGUMENT     argument: 0, context 0
+	  20:RETURN_LOCAL      
+	)
+Warning: Primitive perform: is not in class definition for class Object
+Warning: Primitive perform:inSuperclass: is not in class definition for class Object
+Warning: Primitive perform:withArguments: is not in class definition for class Object
+Warning: Primitive instVarAt: is not in class definition for class Object
+Warning: Primitive instVarAt:put: is not in class definition for class Object
+Warning: Primitive halt is not in class definition for class Object
+#Class>>#name = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_FIELD        (index: 2) field: name
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#Class>>#asString = (
+	<0 locals, 1 stack, 13 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:SEND              (index: 0) signature: #name
+	   5:SEND              (index: 1) signature: #asString
+	   7:RETURN_LOCAL      
+	   8:POP               
+	   9:PUSH_ARGUMENT     argument: 0, context 0
+	  12:RETURN_LOCAL      
+	)
+#Class>>#new = <primitive>
+#Class>>#superclass = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_FIELD        (index: 1) field: superClass
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#Class>>#fields = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_FIELD        (index: 3) field: instanceFields
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#Class>>#methods = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_FIELD        (index: 4) field: instanceInvokables
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#Class>>#hasMethod: = (
+	<0 locals, 2 stack, 15 bc_count>
+	   0:PUSH_FIELD        (index: 4) field: instanceInvokables
+	   2:PUSH_BLOCK        block: (index: 1) (
+		<0 locals, 2 stack, 15 bc_count>
+		   0:PUSH_ARGUMENT     argument: 1, context 0
+		   3:SEND              (index: 0) signature: #signature
+		   5:PUSH_ARGUMENT     argument: 1, context 1
+		   8:SEND              (index: 1) signature: #=
+		  10:PUSH_BLOCK        block: (index: 2) (
+			<0 locals, 1 stack, 4 bc_count>
+			   0:PUSH_GLOBAL       (index: 0) value: #true
+			   2:RETURN_NON_LOCAL  
+			   3:RETURN_LOCAL      
+			)
+		  12:SEND              (index: 3) signature: #ifTrue:
+		  14:RETURN_LOCAL      
+		)
+	   4:SEND              (index: 2) signature: #do:
+	   6:POP               
+	   7:PUSH_GLOBAL       (index: 3) value: #false
+	   9:RETURN_LOCAL      
+	  10:POP               
+	  11:PUSH_ARGUMENT     argument: 0, context 0
+	  14:RETURN_LOCAL      
+	)
+#Nil>>#asString = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_CONSTANT     (index: 0) value: (#String) "nil"
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#Nil>>#isNil = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_GLOBAL       (index: 0) value: #true
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#Array class>>#new = (
+	<0 locals, 2 stack, 13 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_CONSTANT     (index: 0) value: (#Integer) a Integer(0)
+	   5:SEND              (index: 1) signature: #new:
+	   7:RETURN_LOCAL      
+	   8:POP               
+	   9:PUSH_ARGUMENT     argument: 0, context 0
+	  12:RETURN_LOCAL      
+	)
+#Array class>>#new: = <primitive>
+#Array class>>#new:withAll: = (
+	<0 locals, 2 stack, 19 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:SEND              (index: 0) signature: #new:
+	   8:PUSH_ARGUMENT     argument: 2, context 0
+	  11:SEND              (index: 1) signature: #putAll:
+	  13:RETURN_LOCAL      
+	  14:POP               
+	  15:PUSH_ARGUMENT     argument: 0, context 0
+	  18:RETURN_LOCAL      
+	)
+#Array>>#at: = <primitive>
+#Array>>#at:put: = <primitive>
+#Array>>#length = <primitive>
+#Array>>#putAll: = (
+	<0 locals, 2 stack, 12 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_BLOCK        block: (index: 0) (
+		<0 locals, 3 stack, 14 bc_count>
+		   0:PUSH_ARGUMENT     argument: 0, context 1
+		   3:PUSH_ARGUMENT     argument: 1, context 0
+		   6:PUSH_ARGUMENT     argument: 1, context 1
+		   9:SEND              (index: 0) signature: #value
+		  11:SEND              (index: 1) signature: #at:put:
+		  13:RETURN_LOCAL      
+		)
+	   5:SEND              (index: 1) signature: #doIndexes:
+	   7:POP               
+	   8:PUSH_ARGUMENT     argument: 0, context 0
+	  11:RETURN_LOCAL      
+	)
+#Array>>#do: = (
+	<0 locals, 2 stack, 12 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_BLOCK        block: (index: 0) (
+		<0 locals, 3 stack, 14 bc_count>
+		   0:PUSH_ARGUMENT     argument: 1, context 1
+		   3:PUSH_ARGUMENT     argument: 0, context 1
+		   6:PUSH_ARGUMENT     argument: 1, context 0
+		   9:SEND              (index: 0) signature: #at:
+		  11:SEND              (index: 1) signature: #value:
+		  13:RETURN_LOCAL      
+		)
+	   5:SEND              (index: 1) signature: #doIndexes:
+	   7:POP               
+	   8:PUSH_ARGUMENT     argument: 0, context 0
+	  11:RETURN_LOCAL      
+	)
+#Array>>#doIndexes: = (
+	<1 locals, 2 stack, 18 bc_count>
+	   0:PUSH_CONSTANT     (index: 0) value: (#Integer) a Integer(1)
+	   2:DUP               
+	   3:POP_LOCAL         local: 0, context: 0
+	   6:POP               
+	   7:PUSH_BLOCK        block: (index: 1) (
+		<0 locals, 2 stack, 11 bc_count>
+		   0:PUSH_LOCAL        local: 0, context: 1
+		   3:PUSH_ARGUMENT     argument: 0, context 1
+		   6:SEND              (index: 1) signature: #length
+		   8:SEND              (index: 0) signature: #<=
+		  10:RETURN_LOCAL      
+		)
+	   9:PUSH_BLOCK        block: (index: 2) (
+		<0 locals, 2 stack, 21 bc_count>
+		   0:PUSH_ARGUMENT     argument: 1, context 1
+		   3:PUSH_LOCAL        local: 0, context: 1
+		   6:SEND              (index: 0) signature: #value:
+		   8:POP               
+		   9:PUSH_LOCAL        local: 0, context: 1
+		  12:PUSH_CONSTANT     (index: 2) value: (#Integer) a Integer(1)
+		  14:SEND              (index: 1) signature: #+
+		  16:DUP               
+		  17:POP_LOCAL         local: 0, context: 1
+		  20:RETURN_LOCAL      
+		)
+	  11:SEND              (index: 3) signature: #whileTrue:
+	  13:POP               
+	  14:PUSH_ARGUMENT     argument: 0, context 0
+	  17:RETURN_LOCAL      
+	)
+#Array>>#from:to:do: = (
+	<1 locals, 2 stack, 19 bc_count>
+	   0:PUSH_ARGUMENT     argument: 1, context 0
+	   3:DUP               
+	   4:POP_LOCAL         local: 0, context: 0
+	   7:POP               
+	   8:PUSH_BLOCK        block: (index: 0) (
+		<0 locals, 2 stack, 11 bc_count>
+		   0:PUSH_LOCAL        local: 0, context: 1
+		   3:PUSH_ARGUMENT     argument: 0, context 1
+		   6:SEND              (index: 1) signature: #length
+		   8:SEND              (index: 0) signature: #<=
+		  10:RETURN_LOCAL      
+		)
+	  10:PUSH_BLOCK        block: (index: 1) (
+		<0 locals, 3 stack, 26 bc_count>
+		   0:PUSH_ARGUMENT     argument: 3, context 1
+		   3:PUSH_ARGUMENT     argument: 0, context 1
+		   6:PUSH_LOCAL        local: 0, context: 1
+		   9:SEND              (index: 0) signature: #at:
+		  11:SEND              (index: 1) signature: #value:
+		  13:POP               
+		  14:PUSH_LOCAL        local: 0, context: 1
+		  17:PUSH_CONSTANT     (index: 3) value: (#Integer) a Integer(1)
+		  19:SEND              (index: 2) signature: #+
+		  21:DUP               
+		  22:POP_LOCAL         local: 0, context: 1
+		  25:RETURN_LOCAL      
+		)
+	  12:SEND              (index: 2) signature: #whileTrue:
+	  14:POP               
+	  15:PUSH_ARGUMENT     argument: 0, context 0
+	  18:RETURN_LOCAL      
+	)
+#Array>>#contains: = (
+	<0 locals, 2 stack, 16 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_BLOCK        block: (index: 0) (
+		<0 locals, 2 stack, 13 bc_count>
+		   0:PUSH_ARGUMENT     argument: 1, context 0
+		   3:PUSH_ARGUMENT     argument: 1, context 1
+		   6:SEND              (index: 0) signature: #=
+		   8:PUSH_BLOCK        block: (index: 1) (
+			<0 locals, 1 stack, 4 bc_count>
+			   0:PUSH_GLOBAL       (index: 0) value: #true
+			   2:RETURN_NON_LOCAL  
+			   3:RETURN_LOCAL      
+			)
+		  10:SEND              (index: 2) signature: #ifTrue:
+		  12:RETURN_LOCAL      
+		)
+	   5:SEND              (index: 1) signature: #do:
+	   7:POP               
+	   8:PUSH_GLOBAL       (index: 2) value: #false
+	  10:RETURN_LOCAL      
+	  11:POP               
+	  12:PUSH_ARGUMENT     argument: 0, context 0
+	  15:RETURN_LOCAL      
+	)
+#Array>>#collect: = (
+	<1 locals, 2 stack, 31 bc_count>
+	   0:PUSH_GLOBAL       (index: 0) value: #Array
+	   2:PUSH_ARGUMENT     argument: 0, context 0
+	   5:SEND              (index: 1) signature: #length
+	   7:SEND              (index: 2) signature: #new:
+	   9:DUP               
+	  10:POP_LOCAL         local: 0, context: 0
+	  13:POP               
+	  14:PUSH_ARGUMENT     argument: 0, context 0
+	  17:PUSH_BLOCK        block: (index: 3) (
+		<0 locals, 5 stack, 22 bc_count>
+		   0:PUSH_LOCAL        local: 0, context: 1
+		   3:PUSH_ARGUMENT     argument: 1, context 0
+		   6:PUSH_ARGUMENT     argument: 1, context 1
+		   9:PUSH_ARGUMENT     argument: 0, context 1
+		  12:PUSH_ARGUMENT     argument: 1, context 0
+		  15:SEND              (index: 0) signature: #at:
+		  17:SEND              (index: 1) signature: #value:
+		  19:SEND              (index: 2) signature: #at:put:
+		  21:RETURN_LOCAL      
+		)
+	  19:SEND              (index: 4) signature: #doIndexes:
+	  21:POP               
+	  22:PUSH_LOCAL        local: 0, context: 0
+	  25:RETURN_LOCAL      
+	  26:POP               
+	  27:PUSH_ARGUMENT     argument: 0, context 0
+	  30:RETURN_LOCAL      
+	)
+#Method>>#signature = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_FIELD        (index: 3) field: signature
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#Method>>#holder = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_FIELD        (index: 4) field: holder
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#Method>>#asString = (
+	<0 locals, 2 stack, 20 bc_count>
+	   0:PUSH_FIELD        (index: 4) field: holder
+	   2:SEND              (index: 1) signature: #asString
+	   4:PUSH_CONSTANT     (index: 3) value: (#String) ">>"
+	   6:SEND              (index: 2) signature: #+
+	   8:PUSH_FIELD        (index: 3) field: signature
+	  10:SEND              (index: 1) signature: #asString
+	  12:SEND              (index: 2) signature: #+
+	  14:RETURN_LOCAL      
+	  15:POP               
+	  16:PUSH_ARGUMENT     argument: 0, context 0
+	  19:RETURN_LOCAL      
+	)
+#Symbol>>#asString = <primitive>
+#Symbol>>#asSymbol = (
+	<0 locals, 1 stack, 9 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:RETURN_LOCAL      
+	   4:POP               
+	   5:PUSH_ARGUMENT     argument: 0, context 0
+	   8:RETURN_LOCAL      
+	)
+#Symbol>>#print = (
+	<0 locals, 1 stack, 15 bc_count>
+	   0:PUSH_CONSTANT     (index: 0) value: (#String) "#"
+	   2:SEND              (index: 1) signature: #print
+	   4:POP               
+	   5:PUSH_ARGUMENT     argument: 0, context 0
+	   8:SUPER_SEND        (index: 1) signature: #print
+	  10:POP               
+	  11:PUSH_ARGUMENT     argument: 0, context 0
+	  14:RETURN_LOCAL      
+	)
+#Integer>>#+ = <primitive>
+#Integer>>#- = <primitive>
+#Integer>>#* = <primitive>
+#Integer>>#/ = <primitive>
+#Integer>>#// = <primitive>
+#Integer>>#% = <primitive>
+#Integer>>#& = <primitive>
+#Integer>>#abs = (
+	<0 locals, 3 stack, 25 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_CONSTANT     (index: 1) value: (#Integer) a Integer(0)
+	   5:SEND              (index: 0) signature: #<
+	   7:PUSH_CONSTANT     (index: 1) value: (#Integer) a Integer(0)
+	   9:PUSH_ARGUMENT     argument: 0, context 0
+	  12:SEND              (index: 2) signature: #-
+	  14:PUSH_ARGUMENT     argument: 0, context 0
+	  17:SEND              (index: 3) signature: #ifTrue:ifFalse:
+	  19:RETURN_LOCAL      
+	  20:POP               
+	  21:PUSH_ARGUMENT     argument: 0, context 0
+	  24:RETURN_LOCAL      
+	)
+#Integer>>#sqrt = <primitive>
+#Integer>>#negated = (
+	<0 locals, 2 stack, 13 bc_count>
+	   0:PUSH_CONSTANT     (index: 0) value: (#Integer) a Integer(0)
+	   2:PUSH_ARGUMENT     argument: 0, context 0
+	   5:SEND              (index: 1) signature: #-
+	   7:RETURN_LOCAL      
+	   8:POP               
+	   9:PUSH_ARGUMENT     argument: 0, context 0
+	  12:RETURN_LOCAL      
+	)
+#Integer>>#atRandom = <primitive>
+#Integer>>#= = <primitive>
+#Integer>>#< = <primitive>
+#Integer>>#> = (
+	<0 locals, 2 stack, 18 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:SEND              (index: 0) signature: #>=
+	   8:PUSH_BLOCK        block: (index: 1) (
+		<0 locals, 2 stack, 9 bc_count>
+		   0:PUSH_ARGUMENT     argument: 0, context 1
+		   3:PUSH_ARGUMENT     argument: 1, context 1
+		   6:SEND              (index: 0) signature: #<>
+		   8:RETURN_LOCAL      
+		)
+	  10:SEND              (index: 2) signature: #and:
+	  12:RETURN_LOCAL      
+	  13:POP               
+	  14:PUSH_ARGUMENT     argument: 0, context 0
+	  17:RETURN_LOCAL      
+	)
+#Integer>>#>= = (
+	<0 locals, 2 stack, 16 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:SEND              (index: 0) signature: #<
+	   8:SEND              (index: 1) signature: #not
+	  10:RETURN_LOCAL      
+	  11:POP               
+	  12:PUSH_ARGUMENT     argument: 0, context 0
+	  15:RETURN_LOCAL      
+	)
+#Integer>>#<= = (
+	<0 locals, 2 stack, 18 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:SEND              (index: 0) signature: #<
+	   8:PUSH_BLOCK        block: (index: 1) (
+		<0 locals, 2 stack, 9 bc_count>
+		   0:PUSH_ARGUMENT     argument: 0, context 1
+		   3:PUSH_ARGUMENT     argument: 1, context 1
+		   6:SEND              (index: 0) signature: #=
+		   8:RETURN_LOCAL      
+		)
+	  10:SEND              (index: 2) signature: #or:
+	  12:RETURN_LOCAL      
+	  13:POP               
+	  14:PUSH_ARGUMENT     argument: 0, context 0
+	  17:RETURN_LOCAL      
+	)
+#Integer>>#negative = (
+	<0 locals, 2 stack, 13 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_CONSTANT     (index: 1) value: (#Integer) a Integer(0)
+	   5:SEND              (index: 0) signature: #<
+	   7:RETURN_LOCAL      
+	   8:POP               
+	   9:PUSH_ARGUMENT     argument: 0, context 0
+	  12:RETURN_LOCAL      
+	)
+#Integer>>#between:and: = (
+	<0 locals, 2 stack, 18 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:SEND              (index: 0) signature: #>
+	   8:PUSH_BLOCK        block: (index: 1) (
+		<0 locals, 2 stack, 9 bc_count>
+		   0:PUSH_ARGUMENT     argument: 0, context 1
+		   3:PUSH_ARGUMENT     argument: 2, context 1
+		   6:SEND              (index: 0) signature: #<
+		   8:RETURN_LOCAL      
+		)
+	  10:SEND              (index: 2) signature: #and:
+	  12:RETURN_LOCAL      
+	  13:POP               
+	  14:PUSH_ARGUMENT     argument: 0, context 0
+	  17:RETURN_LOCAL      
+	)
+#Integer>>#asString = <primitive>
+#Integer>>#hashcode = (
+	<0 locals, 1 stack, 9 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:RETURN_LOCAL      
+	   4:POP               
+	   5:PUSH_ARGUMENT     argument: 0, context 0
+	   8:RETURN_LOCAL      
+	)
+#Integer>>#to:do: = (
+	<0 locals, 4 stack, 18 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:PUSH_CONSTANT     (index: 0) value: (#Integer) a Integer(1)
+	   8:PUSH_ARGUMENT     argument: 2, context 0
+	  11:SEND              (index: 1) signature: #to:by:do:
+	  13:POP               
+	  14:PUSH_ARGUMENT     argument: 0, context 0
+	  17:RETURN_LOCAL      
+	)
+#Integer>>#to:by:do: = (
+	<1 locals, 2 stack, 19 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:DUP               
+	   4:POP_LOCAL         local: 0, context: 0
+	   7:POP               
+	   8:PUSH_BLOCK        block: (index: 0) (
+		<0 locals, 2 stack, 9 bc_count>
+		   0:PUSH_LOCAL        local: 0, context: 1
+		   3:PUSH_ARGUMENT     argument: 1, context 1
+		   6:SEND              (index: 0) signature: #<=
+		   8:RETURN_LOCAL      
+		)
+	  10:PUSH_BLOCK        block: (index: 1) (
+		<0 locals, 2 stack, 22 bc_count>
+		   0:PUSH_ARGUMENT     argument: 3, context 1
+		   3:PUSH_LOCAL        local: 0, context: 1
+		   6:SEND              (index: 0) signature: #value:
+		   8:POP               
+		   9:PUSH_LOCAL        local: 0, context: 1
+		  12:PUSH_ARGUMENT     argument: 2, context 1
+		  15:SEND              (index: 1) signature: #+
+		  17:DUP               
+		  18:POP_LOCAL         local: 0, context: 1
+		  21:RETURN_LOCAL      
+		)
+	  12:SEND              (index: 2) signature: #whileTrue:
+	  14:POP               
+	  15:PUSH_ARGUMENT     argument: 0, context 0
+	  18:RETURN_LOCAL      
+	)
+#Integer>>#downTo:do: = (
+	<0 locals, 4 stack, 18 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:PUSH_CONSTANT     (index: 0) value: (#Integer) a Integer(1)
+	   8:PUSH_ARGUMENT     argument: 2, context 0
+	  11:SEND              (index: 1) signature: #downTo:by:do:
+	  13:POP               
+	  14:PUSH_ARGUMENT     argument: 0, context 0
+	  17:RETURN_LOCAL      
+	)
+#Integer>>#downTo:by:do: = (
+	<1 locals, 2 stack, 19 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:DUP               
+	   4:POP_LOCAL         local: 0, context: 0
+	   7:POP               
+	   8:PUSH_BLOCK        block: (index: 0) (
+		<0 locals, 2 stack, 9 bc_count>
+		   0:PUSH_LOCAL        local: 0, context: 1
+		   3:PUSH_ARGUMENT     argument: 1, context 1
+		   6:SEND              (index: 0) signature: #>=
+		   8:RETURN_LOCAL      
+		)
+	  10:PUSH_BLOCK        block: (index: 1) (
+		<0 locals, 2 stack, 22 bc_count>
+		   0:PUSH_ARGUMENT     argument: 3, context 1
+		   3:PUSH_LOCAL        local: 0, context: 1
+		   6:SEND              (index: 0) signature: #value:
+		   8:POP               
+		   9:PUSH_LOCAL        local: 0, context: 1
+		  12:PUSH_ARGUMENT     argument: 2, context 1
+		  15:SEND              (index: 1) signature: #-
+		  17:DUP               
+		  18:POP_LOCAL         local: 0, context: 1
+		  21:RETURN_LOCAL      
+		)
+	  12:SEND              (index: 2) signature: #whileTrue:
+	  14:POP               
+	  15:PUSH_ARGUMENT     argument: 0, context 0
+	  18:RETURN_LOCAL      
+	)
+#Integer>>#timesRepeat: = (
+	<0 locals, 3 stack, 14 bc_count>
+	   0:PUSH_CONSTANT     (index: 0) value: (#Integer) a Integer(1)
+	   2:PUSH_ARGUMENT     argument: 0, context 0
+	   5:PUSH_BLOCK        block: (index: 1) (
+		<0 locals, 1 stack, 6 bc_count>
+		   0:PUSH_ARGUMENT     argument: 1, context 1
+		   3:SEND              (index: 0) signature: #value
+		   5:RETURN_LOCAL      
+		)
+	   7:SEND              (index: 2) signature: #to:do:
+	   9:POP               
+	  10:PUSH_ARGUMENT     argument: 0, context 0
+	  13:RETURN_LOCAL      
+	)
+#Integer>>#to: = (
+	<1 locals, 3 stack, 41 bc_count>
+	   0:PUSH_GLOBAL       (index: 0) value: #Array
+	   2:PUSH_ARGUMENT     argument: 1, context 0
+	   5:PUSH_ARGUMENT     argument: 0, context 0
+	   8:SEND              (index: 1) signature: #-
+	  10:PUSH_CONSTANT     (index: 3) value: (#Integer) a Integer(1)
+	  12:SEND              (index: 2) signature: #+
+	  14:SEND              (index: 4) signature: #new:
+	  16:DUP               
+	  17:POP_LOCAL         local: 0, context: 0
+	  20:POP               
+	  21:PUSH_ARGUMENT     argument: 0, context 0
+	  24:PUSH_ARGUMENT     argument: 1, context 0
+	  27:PUSH_BLOCK        block: (index: 5) (
+		<0 locals, 3 stack, 12 bc_count>
+		   0:PUSH_LOCAL        local: 0, context: 1
+		   3:PUSH_ARGUMENT     argument: 1, context 0
+		   6:PUSH_ARGUMENT     argument: 1, context 0
+		   9:SEND              (index: 0) signature: #at:put:
+		  11:RETURN_LOCAL      
+		)
+	  29:SEND              (index: 6) signature: #to:do:
+	  31:POP               
+	  32:PUSH_LOCAL        local: 0, context: 0
+	  35:RETURN_LOCAL      
+	  36:POP               
+	  37:PUSH_ARGUMENT     argument: 0, context 0
+	  40:RETURN_LOCAL      
+	)
+Warning: Primitive asDouble is not in class definition for class Integer
+Warning: Primitive rem: is not in class definition for class Integer
+Warning: Primitive << is not in class definition for class Integer
+Warning: Primitive bitXor: is not in class definition for class Integer
+Warning: Primitive as32BitSignedValue is not in class definition for class Integer
+Warning: Primitive as32BitUnsignedValue is not in class definition for class Integer
+Warning: Primitive >>> is not in class definition for class Integer
+Warning: Primitive fromString: is not in class definition for class Integer class
+#Primitive>>#signature = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_FIELD        (index: 1) field: signature
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#Primitive>>#holder = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_FIELD        (index: 2) field: holder
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#String>>#concatenate: = <primitive>
+#String>>#+ = (
+	<0 locals, 2 stack, 16 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:SEND              (index: 0) signature: #asString
+	   8:SEND              (index: 1) signature: #concatenate:
+	  10:RETURN_LOCAL      
+	  11:POP               
+	  12:PUSH_ARGUMENT     argument: 0, context 0
+	  15:RETURN_LOCAL      
+	)
+#String>>#asString = (
+	<0 locals, 1 stack, 9 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:RETURN_LOCAL      
+	   4:POP               
+	   5:PUSH_ARGUMENT     argument: 0, context 0
+	   8:RETURN_LOCAL      
+	)
+#String>>#asSymbol = <primitive>
+#String>>#hashcode = <primitive>
+#String>>#length = <primitive>
+#String>>#= = <primitive>
+#String>>#primSubstringFrom:To: = <primitive>
+#String>>#substringFrom:To: = (
+	<0 locals, 3 stack, 40 bc_count>
+	   0:PUSH_ARGUMENT     argument: 2, context 0
+	   3:PUSH_ARGUMENT     argument: 0, context 0
+	   6:SEND              (index: 1) signature: #length
+	   8:SEND              (index: 0) signature: #<
+	  10:PUSH_ARGUMENT     argument: 1, context 0
+	  13:PUSH_CONSTANT     (index: 4) value: (#Integer) a Integer(0)
+	  15:SEND              (index: 3) signature: #>=
+	  17:SEND              (index: 2) signature: #&&
+	  19:PUSH_ARGUMENT     argument: 1, context 0
+	  22:PUSH_ARGUMENT     argument: 2, context 0
+	  25:SEND              (index: 5) signature: #<=
+	  27:SEND              (index: 2) signature: #&&
+	  29:PUSH_BLOCK        block: (index: 6) (
+		<0 locals, 3 stack, 13 bc_count>
+		   0:PUSH_ARGUMENT     argument: 0, context 1
+		   3:PUSH_ARGUMENT     argument: 1, context 1
+		   6:PUSH_ARGUMENT     argument: 2, context 1
+		   9:SEND              (index: 0) signature: #primSubstringFrom:To:
+		  11:RETURN_NON_LOCAL  
+		  12:RETURN_LOCAL      
+		)
+	  31:PUSH_BLOCK        block: (index: 7) (
+		<0 locals, 2 stack, 8 bc_count>
+		   0:PUSH_ARGUMENT     argument: 0, context 1
+		   3:PUSH_CONSTANT     (index: 0) value: (#String) "Attempting to index string out of its bounds."
+		   5:SEND              (index: 1) signature: #error:
+		   7:RETURN_LOCAL      
+		)
+	  33:SEND              (index: 8) signature: #ifTrue:ifFalse:
+	  35:POP               
+	  36:PUSH_ARGUMENT     argument: 0, context 0
+	  39:RETURN_LOCAL      
+	)
+#String>>#charAt: = (
+	<0 locals, 3 stack, 17 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:PUSH_ARGUMENT     argument: 1, context 0
+	   9:SEND              (index: 0) signature: #substringFrom:To:
+	  11:RETURN_LOCAL      
+	  12:POP               
+	  13:PUSH_ARGUMENT     argument: 0, context 0
+	  16:RETURN_LOCAL      
+	)
+#String>>#print = (
+	<0 locals, 2 stack, 12 bc_count>
+	   0:PUSH_GLOBAL       (index: 0) value: #system
+	   2:PUSH_ARGUMENT     argument: 0, context 0
+	   5:SEND              (index: 1) signature: #printString:
+	   7:POP               
+	   8:PUSH_ARGUMENT     argument: 0, context 0
+	  11:RETURN_LOCAL      
+	)
+Warning: Primitive primSubstringFrom:to: is not in class definition for class String
+Warning: Primitive isWhiteSpace is not in class definition for class String
+Warning: Primitive isLetters is not in class definition for class String
+Warning: Primitive isDigits is not in class definition for class String
+#Double>>#+ = <primitive>
+#Double>>#- = <primitive>
+#Double>>#* = <primitive>
+#Double>>#// = <primitive>
+#Double>>#% = <primitive>
+#Double>>#& = <primitive>
+#Double>>#abs = (
+	<0 locals, 3 stack, 25 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_CONSTANT     (index: 1) value: (#Integer) a Integer(0)
+	   5:SEND              (index: 0) signature: #<
+	   7:PUSH_CONSTANT     (index: 1) value: (#Integer) a Integer(0)
+	   9:PUSH_ARGUMENT     argument: 0, context 0
+	  12:SEND              (index: 2) signature: #-
+	  14:PUSH_ARGUMENT     argument: 0, context 0
+	  17:SEND              (index: 3) signature: #ifTrue:ifFalse:
+	  19:RETURN_LOCAL      
+	  20:POP               
+	  21:PUSH_ARGUMENT     argument: 0, context 0
+	  24:RETURN_LOCAL      
+	)
+#Double>>#sqrt = <primitive>
+#Double>>#negated = (
+	<0 locals, 2 stack, 13 bc_count>
+	   0:PUSH_CONSTANT     (index: 0) value: (#Integer) a Integer(0)
+	   2:PUSH_ARGUMENT     argument: 0, context 0
+	   5:SEND              (index: 1) signature: #-
+	   7:RETURN_LOCAL      
+	   8:POP               
+	   9:PUSH_ARGUMENT     argument: 0, context 0
+	  12:RETURN_LOCAL      
+	)
+#Double>>#= = <primitive>
+#Double>>#< = <primitive>
+#Double>>#> = (
+	<0 locals, 2 stack, 18 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:SEND              (index: 0) signature: #>=
+	   8:PUSH_BLOCK        block: (index: 1) (
+		<0 locals, 2 stack, 9 bc_count>
+		   0:PUSH_ARGUMENT     argument: 0, context 1
+		   3:PUSH_ARGUMENT     argument: 1, context 1
+		   6:SEND              (index: 0) signature: #<>
+		   8:RETURN_LOCAL      
+		)
+	  10:SEND              (index: 2) signature: #and:
+	  12:RETURN_LOCAL      
+	  13:POP               
+	  14:PUSH_ARGUMENT     argument: 0, context 0
+	  17:RETURN_LOCAL      
+	)
+#Double>>#>= = (
+	<0 locals, 2 stack, 16 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:SEND              (index: 0) signature: #<
+	   8:SEND              (index: 1) signature: #not
+	  10:RETURN_LOCAL      
+	  11:POP               
+	  12:PUSH_ARGUMENT     argument: 0, context 0
+	  15:RETURN_LOCAL      
+	)
+#Double>>#<= = (
+	<0 locals, 2 stack, 18 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:SEND              (index: 0) signature: #<
+	   8:PUSH_BLOCK        block: (index: 1) (
+		<0 locals, 2 stack, 9 bc_count>
+		   0:PUSH_ARGUMENT     argument: 0, context 1
+		   3:PUSH_ARGUMENT     argument: 1, context 1
+		   6:SEND              (index: 0) signature: #=
+		   8:RETURN_LOCAL      
+		)
+	  10:SEND              (index: 2) signature: #or:
+	  12:RETURN_LOCAL      
+	  13:POP               
+	  14:PUSH_ARGUMENT     argument: 0, context 0
+	  17:RETURN_LOCAL      
+	)
+#Double>>#negative = (
+	<0 locals, 2 stack, 13 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_CONSTANT     (index: 1) value: (#Integer) a Integer(0)
+	   5:SEND              (index: 0) signature: #<
+	   7:RETURN_LOCAL      
+	   8:POP               
+	   9:PUSH_ARGUMENT     argument: 0, context 0
+	  12:RETURN_LOCAL      
+	)
+#Double>>#between:and: = (
+	<0 locals, 2 stack, 18 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:SEND              (index: 0) signature: #>
+	   8:PUSH_BLOCK        block: (index: 1) (
+		<0 locals, 2 stack, 9 bc_count>
+		   0:PUSH_ARGUMENT     argument: 0, context 1
+		   3:PUSH_ARGUMENT     argument: 2, context 1
+		   6:SEND              (index: 0) signature: #<
+		   8:RETURN_LOCAL      
+		)
+	  10:SEND              (index: 2) signature: #and:
+	  12:RETURN_LOCAL      
+	  13:POP               
+	  14:PUSH_ARGUMENT     argument: 0, context 0
+	  17:RETURN_LOCAL      
+	)
+#Double>>#asString = <primitive>
+#Double>>#to:do: = (
+	<1 locals, 2 stack, 19 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:DUP               
+	   4:POP_LOCAL         local: 0, context: 0
+	   7:POP               
+	   8:PUSH_BLOCK        block: (index: 0) (
+		<0 locals, 2 stack, 9 bc_count>
+		   0:PUSH_LOCAL        local: 0, context: 1
+		   3:PUSH_ARGUMENT     argument: 1, context 1
+		   6:SEND              (index: 0) signature: #<=
+		   8:RETURN_LOCAL      
+		)
+	  10:PUSH_BLOCK        block: (index: 1) (
+		<0 locals, 2 stack, 21 bc_count>
+		   0:PUSH_ARGUMENT     argument: 2, context 1
+		   3:PUSH_LOCAL        local: 0, context: 1
+		   6:SEND              (index: 0) signature: #value:
+		   8:POP               
+		   9:PUSH_LOCAL        local: 0, context: 1
+		  12:PUSH_CONSTANT     (index: 2) value: (#Integer) a Integer(1)
+		  14:SEND              (index: 1) signature: #+
+		  16:DUP               
+		  17:POP_LOCAL         local: 0, context: 1
+		  20:RETURN_LOCAL      
+		)
+	  12:SEND              (index: 2) signature: #whileTrue:
+	  14:POP               
+	  15:PUSH_ARGUMENT     argument: 0, context 0
+	  18:RETURN_LOCAL      
+	)
+#Double>>#downTo:do: = (
+	<1 locals, 2 stack, 19 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:DUP               
+	   4:POP_LOCAL         local: 0, context: 0
+	   7:POP               
+	   8:PUSH_BLOCK        block: (index: 0) (
+		<0 locals, 2 stack, 9 bc_count>
+		   0:PUSH_LOCAL        local: 0, context: 1
+		   3:PUSH_ARGUMENT     argument: 1, context 1
+		   6:SEND              (index: 0) signature: #>=
+		   8:RETURN_LOCAL      
+		)
+	  10:PUSH_BLOCK        block: (index: 1) (
+		<0 locals, 2 stack, 21 bc_count>
+		   0:PUSH_ARGUMENT     argument: 2, context 1
+		   3:PUSH_LOCAL        local: 0, context: 1
+		   6:SEND              (index: 0) signature: #value:
+		   8:POP               
+		   9:PUSH_LOCAL        local: 0, context: 1
+		  12:PUSH_CONSTANT     (index: 2) value: (#Integer) a Integer(1)
+		  14:SEND              (index: 1) signature: #-
+		  16:DUP               
+		  17:POP_LOCAL         local: 0, context: 1
+		  20:RETURN_LOCAL      
+		)
+	  12:SEND              (index: 2) signature: #whileTrue:
+	  14:POP               
+	  15:PUSH_ARGUMENT     argument: 0, context 0
+	  18:RETURN_LOCAL      
+	)
+Warning: Primitive asInteger is not in class definition for class Double
+Warning: Primitive round is not in class definition for class Double
+Warning: Primitive sin is not in class definition for class Double
+Warning: Primitive cos is not in class definition for class Double
+Warning: Primitive PositiveInfinity is not in class definition for class Double class
+Warning: Primitive fromString: is not in class definition for class Double class
+#Block>>#value = <primitive>
+#Block>>#whileFalse: = (
+	<0 locals, 2 stack, 12 bc_count>
+	   0:PUSH_BLOCK        block: (index: 0) (
+		<0 locals, 1 stack, 8 bc_count>
+		   0:PUSH_ARGUMENT     argument: 0, context 1
+		   3:SEND              (index: 0) signature: #value
+		   5:SEND              (index: 1) signature: #not
+		   7:RETURN_LOCAL      
+		)
+	   2:PUSH_ARGUMENT     argument: 1, context 0
+	   5:SEND              (index: 1) signature: #whileTrue:
+	   7:POP               
+	   8:PUSH_ARGUMENT     argument: 0, context 0
+	  11:RETURN_LOCAL      
+	)
+#Block>>#whileTrue: = (
+	<0 locals, 2 stack, 26 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:SEND              (index: 0) signature: #value
+	   5:PUSH_BLOCK        block: (index: 1) (
+		<0 locals, 1 stack, 4 bc_count>
+		   0:PUSH_GLOBAL       (index: 0) value: #nil
+		   2:RETURN_NON_LOCAL  
+		   3:RETURN_LOCAL      
+		)
+	   7:SEND              (index: 2) signature: #ifFalse:
+	   9:POP               
+	  10:PUSH_ARGUMENT     argument: 1, context 0
+	  13:SEND              (index: 0) signature: #value
+	  15:POP               
+	  16:PUSH_ARGUMENT     argument: 0, context 0
+	  19:SEND              (index: 3) signature: #restart
+	  21:POP               
+	  22:PUSH_ARGUMENT     argument: 0, context 0
+	  25:RETURN_LOCAL      
+	)
+#Block>>#restart = <primitive>
+#Boolean>>#ifTrue:ifFalse: = (
+	<0 locals, 2 stack, 20 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_BLOCK        block: (index: 0) (
+		<0 locals, 1 stack, 7 bc_count>
+		   0:PUSH_ARGUMENT     argument: 1, context 1
+		   3:SEND              (index: 0) signature: #value
+		   5:RETURN_NON_LOCAL  
+		   6:RETURN_LOCAL      
+		)
+	   5:SEND              (index: 1) signature: #ifTrue:
+	   7:POP               
+	   8:PUSH_ARGUMENT     argument: 0, context 0
+	  11:PUSH_BLOCK        block: (index: 2) (
+		<0 locals, 1 stack, 7 bc_count>
+		   0:PUSH_ARGUMENT     argument: 2, context 1
+		   3:SEND              (index: 0) signature: #value
+		   5:RETURN_NON_LOCAL  
+		   6:RETURN_LOCAL      
+		)
+	  13:SEND              (index: 3) signature: #ifFalse:
+	  15:POP               
+	  16:PUSH_ARGUMENT     argument: 0, context 0
+	  19:RETURN_LOCAL      
+	)
+#Boolean>>#|| = (
+	<0 locals, 2 stack, 14 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:SEND              (index: 0) signature: #or:
+	   8:RETURN_LOCAL      
+	   9:POP               
+	  10:PUSH_ARGUMENT     argument: 0, context 0
+	  13:RETURN_LOCAL      
+	)
+#Boolean>>#&& = (
+	<0 locals, 2 stack, 14 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:SEND              (index: 0) signature: #and:
+	   8:RETURN_LOCAL      
+	   9:POP               
+	  10:PUSH_ARGUMENT     argument: 0, context 0
+	  13:RETURN_LOCAL      
+	)
+#True>>#asString = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_CONSTANT     (index: 0) value: (#String) "true"
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#True>>#ifTrue: = (
+	<0 locals, 1 stack, 11 bc_count>
+	   0:PUSH_ARGUMENT     argument: 1, context 0
+	   3:SEND              (index: 0) signature: #value
+	   5:RETURN_LOCAL      
+	   6:POP               
+	   7:PUSH_ARGUMENT     argument: 0, context 0
+	  10:RETURN_LOCAL      
+	)
+#True>>#ifFalse: = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_GLOBAL       (index: 0) value: #nil
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#True>>#not = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_GLOBAL       (index: 0) value: #false
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#True>>#or: = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_GLOBAL       (index: 0) value: #true
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#True>>#and: = (
+	<0 locals, 1 stack, 11 bc_count>
+	   0:PUSH_ARGUMENT     argument: 1, context 0
+	   3:SEND              (index: 0) signature: #value
+	   5:RETURN_LOCAL      
+	   6:POP               
+	   7:PUSH_ARGUMENT     argument: 0, context 0
+	  10:RETURN_LOCAL      
+	)
+#False>>#asString = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_CONSTANT     (index: 0) value: (#String) "false"
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#False>>#ifTrue: = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_GLOBAL       (index: 0) value: #nil
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#False>>#ifFalse: = (
+	<0 locals, 1 stack, 11 bc_count>
+	   0:PUSH_ARGUMENT     argument: 1, context 0
+	   3:SEND              (index: 0) signature: #value
+	   5:RETURN_LOCAL      
+	   6:POP               
+	   7:PUSH_ARGUMENT     argument: 0, context 0
+	  10:RETURN_LOCAL      
+	)
+#False>>#not = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_GLOBAL       (index: 0) value: #true
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#False>>#or: = (
+	<0 locals, 1 stack, 11 bc_count>
+	   0:PUSH_ARGUMENT     argument: 1, context 0
+	   3:SEND              (index: 0) signature: #value
+	   5:RETURN_LOCAL      
+	   6:POP               
+	   7:PUSH_ARGUMENT     argument: 0, context 0
+	  10:RETURN_LOCAL      
+	)
+#False>>#and: = (
+	<0 locals, 1 stack, 8 bc_count>
+	   0:PUSH_GLOBAL       (index: 0) value: #false
+	   2:RETURN_LOCAL      
+	   3:POP               
+	   4:PUSH_ARGUMENT     argument: 0, context 0
+	   7:RETURN_LOCAL      
+	)
+#System class>>#new = (
+	<0 locals, 2 stack, 12 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_CONSTANT     (index: 0) value: (#String) "The system object is singular"
+	   5:SEND              (index: 1) signature: #error:
+	   7:POP               
+	   8:PUSH_ARGUMENT     argument: 0, context 0
+	  11:RETURN_LOCAL      
+	)
+#System>>#global: = <primitive>
+#System>>#global:put: = <primitive>
+#System>>#initialize: = (
+	<1 locals, 3 stack, 66 bc_count>
+	   0:PUSH_ARGUMENT     argument: 1, context 0
+	   3:SEND              (index: 0) signature: #length
+	   5:PUSH_CONSTANT     (index: 2) value: (#Integer) a Integer(1)
+	   7:SEND              (index: 1) signature: #<
+	   9:PUSH_BLOCK        block: (index: 3) (
+		<0 locals, 1 stack, 9 bc_count>
+		   0:PUSH_CONSTANT     (index: 0) value: (#String) "No class specified"
+		   2:SEND              (index: 1) signature: #println
+		   4:POP               
+		   5:PUSH_GLOBAL       (index: 2) value: #nil
+		   7:RETURN_NON_LOCAL  
+		   8:RETURN_LOCAL      
+		)
+	  11:SEND              (index: 4) signature: #ifTrue:
+	  13:POP               
+	  14:PUSH_ARGUMENT     argument: 0, context 0
+	  17:PUSH_ARGUMENT     argument: 1, context 0
+	  20:PUSH_CONSTANT     (index: 2) value: (#Integer) a Integer(1)
+	  22:SEND              (index: 5) signature: #at:
+	  24:SEND              (index: 6) signature: #asSymbol
+	  26:SEND              (index: 7) signature: #resolve:
+	  28:SEND              (index: 8) signature: #new
+	  30:DUP               
+	  31:POP_LOCAL         local: 0, context: 0
+	  34:POP               
+	  35:PUSH_ARGUMENT     argument: 1, context 0
+	  38:SEND              (index: 0) signature: #length
+	  40:PUSH_CONSTANT     (index: 2) value: (#Integer) a Integer(1)
+	  42:SEND              (index: 9) signature: #>
+	  44:PUSH_LOCAL        local: 0, context: 0
+	  47:SEND              (index: 11) signature: #class
+	  49:PUSH_CONSTANT     (index: 12) value: (#Symbol) #run:
+	  51:SEND              (index: 13) signature: #hasMethod:
+	  53:SEND              (index: 10) signature: #&&
+	  55:PUSH_BLOCK        block: (index: 14) (
+		<0 locals, 2 stack, 9 bc_count>
+		   0:PUSH_LOCAL        local: 0, context: 1
+		   3:PUSH_ARGUMENT     argument: 1, context 1
+		   6:SEND              (index: 0) signature: #run:
+		   8:RETURN_LOCAL      
+		)
+	  57:PUSH_BLOCK        block: (index: 15) (
+		<0 locals, 1 stack, 6 bc_count>
+		   0:PUSH_LOCAL        local: 0, context: 1
+		   3:SEND              (index: 0) signature: #run
+		   5:RETURN_LOCAL      
+		)
+	  59:SEND              (index: 16) signature: #ifTrue:ifFalse:
+	  61:POP               
+	  62:PUSH_ARGUMENT     argument: 0, context 0
+	  65:RETURN_LOCAL      
+	)
+#System>>#load: = <primitive>
+#System>>#resolve: = (
+	<2 locals, 3 stack, 59 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_ARGUMENT     argument: 1, context 0
+	   6:SEND              (index: 0) signature: #global:
+	   8:PUSH_GLOBAL       (index: 2) value: #nil
+	  10:SEND              (index: 1) signature: #==
+	  12:PUSH_BLOCK        block: (index: 3) (
+		<0 locals, 2 stack, 10 bc_count>
+		   0:PUSH_ARGUMENT     argument: 0, context 1
+		   3:PUSH_ARGUMENT     argument: 1, context 1
+		   6:SEND              (index: 0) signature: #global:
+		   8:RETURN_NON_LOCAL  
+		   9:RETURN_LOCAL      
+		)
+	  14:SEND              (index: 4) signature: #ifFalse:
+	  16:POP               
+	  17:PUSH_ARGUMENT     argument: 0, context 0
+	  20:PUSH_ARGUMENT     argument: 1, context 0
+	  23:SEND              (index: 5) signature: #load:
+	  25:DUP               
+	  26:POP_LOCAL         local: 0, context: 0
+	  29:POP               
+	  30:PUSH_LOCAL        local: 0, context: 0
+	  33:PUSH_GLOBAL       (index: 2) value: #nil
+	  35:SEND              (index: 1) signature: #==
+	  37:PUSH_BLOCK        block: (index: 6) (
+		<0 locals, 2 stack, 20 bc_count>
+		   0:PUSH_LOCAL        local: 0, context: 1
+		   3:DUP               
+		   4:POP_LOCAL         local: 1, context: 1
+		   7:POP               
+		   8:PUSH_BLOCK        block: (index: 0) (
+			<0 locals, 2 stack, 15 bc_count>
+			   0:PUSH_ARGUMENT     argument: 0, context 2
+			   3:PUSH_LOCAL        local: 1, context: 2
+			   6:SEND              (index: 0) signature: #name
+			   8:SEND              (index: 1) signature: #global:
+			  10:PUSH_GLOBAL       (index: 3) value: #nil
+			  12:SEND              (index: 2) signature: #==
+			  14:RETURN_LOCAL      
+			)
+		  10:PUSH_BLOCK        block: (index: 1) (
+			<0 locals, 3 stack, 24 bc_count>
+			   0:PUSH_ARGUMENT     argument: 0, context 2
+			   3:PUSH_LOCAL        local: 1, context: 2
+			   6:SEND              (index: 0) signature: #name
+			   8:PUSH_LOCAL        local: 1, context: 2
+			  11:SEND              (index: 1) signature: #global:put:
+			  13:POP               
+			  14:PUSH_LOCAL        local: 1, context: 2
+			  17:SEND              (index: 2) signature: #superclass
+			  19:DUP               
+			  20:POP_LOCAL         local: 1, context: 2
+			  23:RETURN_LOCAL      
+			)
+		  12:SEND              (index: 2) signature: #whileTrue:
+		  14:POP               
+		  15:PUSH_LOCAL        local: 0, context: 1
+		  18:RETURN_NON_LOCAL  
+		  19:RETURN_LOCAL      
+		)
+	  39:SEND              (index: 4) signature: #ifFalse:
+	  41:POP               
+	  42:PUSH_ARGUMENT     argument: 0, context 0
+	  45:PUSH_CONSTANT     (index: 7) value: (#String) "Unable to resolve "
+	  47:PUSH_ARGUMENT     argument: 1, context 0
+	  50:SEND              (index: 8) signature: #+
+	  52:SEND              (index: 9) signature: #error:
+	  54:POP               
+	  55:PUSH_ARGUMENT     argument: 0, context 0
+	  58:RETURN_LOCAL      
+	)
+#System>>#exit: = <primitive>
+#System>>#exit = (
+	<0 locals, 2 stack, 12 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_CONSTANT     (index: 0) value: (#Integer) a Integer(0)
+	   5:SEND              (index: 1) signature: #exit:
+	   7:POP               
+	   8:PUSH_ARGUMENT     argument: 0, context 0
+	  11:RETURN_LOCAL      
+	)
+#System>>#printString: = <primitive>
+#System>>#printNewline = <primitive>
+#System>>#time = <primitive>
+#System>>#ticks = <primitive>
+#System>>#fullGC = <primitive>
+Warning: Primitive errorPrint: is not in class definition for class System
+Warning: Primitive errorPrintln: is not in class definition for class System
+Warning: Primitive loadFile: is not in class definition for class System
+Warning: Primitive printStackTrace is not in class definition for class System
+#Block1>>#value = <primitive>
+#StringTest>>#run = (
+	<3 locals, 3 stack, 173 bc_count>
+	   0:PUSH_CONSTANT     (index: 0) value: (#String) "foo"
+	   2:DUP               
+	   3:POP_LOCAL         local: 0, context: 0
+	   6:POP               
+	   7:PUSH_CONSTANT     (index: 1) value: (#String) "bar"
+	   9:DUP               
+	  10:POP_LOCAL         local: 1, context: 0
+	  13:POP               
+	  14:PUSH_LOCAL        local: 0, context: 0
+	  17:PUSH_LOCAL        local: 0, context: 0
+	  20:SEND              (index: 2) signature: #=
+	  22:SEND              (index: 3) signature: #println
+	  24:POP               
+	  25:PUSH_LOCAL        local: 0, context: 0
+	  28:PUSH_LOCAL        local: 1, context: 0
+	  31:SEND              (index: 2) signature: #=
+	  33:SEND              (index: 3) signature: #println
+	  35:POP               
+	  36:PUSH_LOCAL        local: 1, context: 0
+	  39:PUSH_LOCAL        local: 1, context: 0
+	  42:SEND              (index: 2) signature: #=
+	  44:SEND              (index: 3) signature: #println
+	  46:POP               
+	  47:PUSH_LOCAL        local: 0, context: 0
+	  50:PUSH_LOCAL        local: 1, context: 0
+	  53:SEND              (index: 4) signature: #+
+	  55:DUP               
+	  56:POP_LOCAL         local: 2, context: 0
+	  59:POP               
+	  60:PUSH_LOCAL        local: 2, context: 0
+	  63:SEND              (index: 5) signature: #length
+	  65:SEND              (index: 3) signature: #println
+	  67:POP               
+	  68:PUSH_LOCAL        local: 2, context: 0
+	  71:PUSH_CONSTANT     (index: 6) value: (#Integer) a Integer(0)
+	  73:SEND              (index: 7) signature: #charAt:
+	  75:SEND              (index: 3) signature: #println
+	  77:POP               
+	  78:PUSH_LOCAL        local: 2, context: 0
+	  81:PUSH_CONSTANT     (index: 8) value: (#Integer) a Integer(1)
+	  83:SEND              (index: 7) signature: #charAt:
+	  85:SEND              (index: 3) signature: #println
+	  87:POP               
+	  88:PUSH_LOCAL        local: 2, context: 0
+	  91:PUSH_CONSTANT     (index: 9) value: (#Integer) a Integer(2)
+	  93:SEND              (index: 7) signature: #charAt:
+	  95:SEND              (index: 3) signature: #println
+	  97:POP               
+	  98:PUSH_LOCAL        local: 2, context: 0
+	 101:PUSH_CONSTANT     (index: 10) value: (#Integer) a Integer(3)
+	 103:SEND              (index: 7) signature: #charAt:
+	 105:SEND              (index: 3) signature: #println
+	 107:POP               
+	 108:PUSH_LOCAL        local: 2, context: 0
+	 111:PUSH_CONSTANT     (index: 11) value: (#Integer) a Integer(4)
+	 113:SEND              (index: 7) signature: #charAt:
+	 115:SEND              (index: 3) signature: #println
+	 117:POP               
+	 118:PUSH_LOCAL        local: 2, context: 0
+	 121:PUSH_CONSTANT     (index: 12) value: (#Integer) a Integer(5)
+	 123:SEND              (index: 7) signature: #charAt:
+	 125:SEND              (index: 3) signature: #println
+	 127:POP               
+	 128:PUSH_LOCAL        local: 2, context: 0
+	 131:PUSH_CONSTANT     (index: 6) value: (#Integer) a Integer(0)
+	 133:PUSH_CONSTANT     (index: 9) value: (#Integer) a Integer(2)
+	 135:SEND              (index: 13) signature: #primSubstringFrom:To:
+	 137:SEND              (index: 3) signature: #println
+	 139:POP               
+	 140:PUSH_LOCAL        local: 2, context: 0
+	 143:PUSH_CONSTANT     (index: 10) value: (#Integer) a Integer(3)
+	 145:PUSH_CONSTANT     (index: 12) value: (#Integer) a Integer(5)
+	 147:SEND              (index: 13) signature: #primSubstringFrom:To:
+	 149:SEND              (index: 3) signature: #println
+	 151:POP               
+	 152:PUSH_LOCAL        local: 2, context: 0
+	 155:PUSH_CONSTANT     (index: 6) value: (#Integer) a Integer(0)
+	 157:PUSH_CONSTANT     (index: 12) value: (#Integer) a Integer(5)
+	 159:SEND              (index: 13) signature: #primSubstringFrom:To:
+	 161:SEND              (index: 3) signature: #println
+	 163:POP               
+	 164:PUSH_CONSTANT     (index: 14) value: (#String) "Hello, World from SmallTalk(tm)"
+	 166:SEND              (index: 3) signature: #println
+	 168:POP               
+	 169:PUSH_ARGUMENT     argument: 0, context 0
+	 172:RETURN_LOCAL      
+	)
+#Block2>>#value = (
+	<0 locals, 2 stack, 12 bc_count>
+	   0:PUSH_ARGUMENT     argument: 0, context 0
+	   3:PUSH_GLOBAL       (index: 0) value: #nil
+	   5:SEND              (index: 1) signature: #value:
+	   7:POP               
+	   8:PUSH_ARGUMENT     argument: 0, context 0
+	  11:RETURN_LOCAL      
+	)
+#Block2>>#value: = <primitive>
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at som.vmobjects.SObject.getField(SObject.java:57)
+	at som.interpreter.Interpreter.doPushField(Interpreter.java:89)
+	at som.interpreter.Interpreter.start(Interpreter.java:267)
+	at som.vm.Universe.interpretMethod(Universe.java:332)
+	at som.vm.Universe.initialize(Universe.java:303)
+	at som.vm.Universe.interpret(Universe.java:79)
+	at som.vm.Universe.main(Universe.java:65)

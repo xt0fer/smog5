@@ -1,8 +1,5 @@
 "
-
-$Id: All.som 31 2009-07-31 12:25:18Z michael.haupt $
-
-Copyright (c) 2001-2007 see AUTHORS file
+Copyright (c) 2001-2013 see AUTHORS file
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the 'Software'), to deal
@@ -23,18 +20,63 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 "
 
-All = (
+All = BenchmarkHarness (
+    | summedAverage |
 
-    run = ( 
-        | total |
-        total := 0.
+    all = (
+        ^ Fibonacci, Dispatch, Bounce, Loop, Permute, Queens, List, Recurse,
+          Storage, Sieve, BubbleSort, QuickSort, Sum, Towers, TreeSort,
+          IntegerLoop, FieldLoop
+    )
+    
+    run: params = (
+        params length < 2
+            ifTrue:  [ self exec: 100 ]
+            ifFalse: [ self exec: (params at: 2) asInteger ]
+    )
+    
+    printUsage = (
+      './som.sh -cp Smalltalk Examples/Benchmarks/All.som [number-of-iterations]' println.
+      '' println.
+      '  number-of-iterations - the number of time each benchmark is executed, default: 1' println.
+    )
+    
+    initialize = (
+        super initialize.
+        summedAverage := 0.
+    )
+    
+    exec: iterations = (
+        'Start execution of all benchmarks. Iterations: ' print.
+        iterations println.
         
-        Fibonacci, Dispatch, Bounce, Loop, Permute, Queens, List, Recurse,
-        Storage, Sieve, BubbleSort, QuickSort, Sum, Towers, TreeSort,
-        IntegerLoop
-            do: [ :benchmark | total := total + benchmark new run ].
+        self all do: [:cls |
+            self initialize.
+            self benchmarkClass: cls.
+            self printAll: false.
+            self maxRuntime: 3. "seconds"
+            self numIterations: iterations.
+            self warmUp: 10.
+
+            self runBenchmark.
+        ].
+        self printTotal.
+    )
+    
+    reportBenchmark: bench result: total = (
+        '' println.
+        'Benchmark: ' print.
+        bench name println.
+
+        ('   Iterations: ' + numIterations + ' (elapsed time ' + (total // 1000) round
+            + ' ms)') println.
+        ('   AVERAGE: ' + ((total // numIterations) // 1000) round + ' ms') println.
         
-        ('All tests completed (' + total + ' ms)') println.
+        summedAverage := summedAverage + (total // numIterations).
+    )
+    
+    printTotal = (
+        ('Summed Average Runtime: ' + (summedAverage // 1000) round asString + ' ms') println.
     )
     
 )
